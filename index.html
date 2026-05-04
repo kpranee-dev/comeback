@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>my comeback </title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+    <div class="container">
+        <div class="text-box">
+            <div class="line" id="l1">10th marks were low...</div>
+            <div class="line" id="l2">People started judging.</div>
+            <div class="line" id="l3">Some said “you can't do it.”</div>
+            <div class="line" id="l4">But they didn’t see your sleepless nights.</div>
+            <div class="line" id="l5">They didn’t see your effort.</div>
+            <div class="line" id="l6">This is not the end.</div>
+            <div class="line" id="l7"> but one person will help you in any time </div>
+            <div class="line" id="l8">Intermediate is my answer. </div>
+            <div class="line" id="l9"> And i will give comeback.🔥</div>
+        </div>
+    </div>
+    <div class="moon"></div>
+    <div class="star" style="top:10%; left:20%"></div>
+    <div class="star" style="top:30%; left:70%"></div>
+    <div class="star" style="top:50%; left:40%"></div>
+    <div class="cloud"></div>
+
+    <button class="start-btn" onclick="startReel()">START ▶</button>
+
+    <audio id="music">
+        <source src="Raghuvaran Misses his Mom (1).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let music = document.getElementById("music");
+
+        let lines = ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9"];
+
+        /* ⏱ TIMING (seconds) — adjust based on your song */
+        let timing = [2, 5, 8, 12, 16, 20, 25, 30, 30];
+
+        function startReel() {
+            music.currentTime = 0;
+            music.play();
+
+            let shown = new Array(lines.length).fill(false);
+
+            setInterval(() => {
+                let current = music.currentTime;
+
+                lines.forEach((id, i) => {
+                    if (!shown[i] && current >= timing[i]) {
+                        document.getElementById(id).classList.add("show");
+                        shown[i] = true;
+                    }
+                });
+            }, 200);
+        }
+    </script>
+
+</body>
+
+</html>
